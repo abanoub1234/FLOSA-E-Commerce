@@ -1,0 +1,34 @@
+<div class="contact-wrapper">
+    <div class="contact-box">
+      <h2 class="contact-title"><i class="bi bi-flower3"></i> Contact Us</h2>
+      <p class="contact-subtitle">We'd love to help! Send us a message below.</p>
+  
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="input-field">
+          <span><i class="bi bi-person-fill"></i></span>
+          <input type="text" formControlName="name" required placeholder=" " />
+          <label>Full Name</label>
+        </div>
+  
+        <!-- Email Field -->
+        <div class="input-field">
+          <span><i class="bi bi-envelope-fill"></i></span>
+          <input type="email" formControlName="email" required placeholder=" " />
+          <label>Email Address</label>
+        </div>
+  
+        <!-- Message Field -->
+        <div class="input-field">
+          <span><i class="bi bi-chat-left-text-fill"></i></span>
+          <textarea formControlName="message" required placeholder=" "></textarea>
+          <label>Your Message</label>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="submit-button" [disabled]="contactForm.invalid">
+          <i class="bi bi-send-fill"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>

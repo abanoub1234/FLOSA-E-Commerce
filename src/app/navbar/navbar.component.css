@@ -1,0 +1,29 @@
+.navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .btn {
+    font-weight: 500;
+  }
+  
+  .d-flex.align-items-center {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between buttons */
+  }
+  
+  .profile-icon {
+    text-decoration: none;
+    color: black;
+    margin-left: 10px; /* Adds slight spacing from Logout */
+  }
+  
+  .profile-icon i {
+    font-size: 1.8rem;
+  }
+  

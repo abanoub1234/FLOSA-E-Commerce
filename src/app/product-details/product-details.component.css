@@ -1,0 +1,63 @@
+.product-card {
+    border-radius: 12px;
+    background: #fff;
+}
+
+.image-container {
+    position: relative;
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 12px;
+    max-width: 90%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.product-image:hover {
+    transform: scale(1.1);
+}
+
+.product-type {
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.seller-info, .store-info {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.review-item {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background: #f1f1f1;
+}
+
+.home-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+}

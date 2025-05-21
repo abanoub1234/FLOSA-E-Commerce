@@ -1,0 +1,52 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Available Jobs</h2>
+  
+    <div class="row justify-content-center">
+      <div class="col-md-6" *ngFor="let job of jobs">
+        <div class="card mb-4 shadow-lg border-0">
+          <div class="card-body">
+            <h4 class="card-title text-primary">{{ job.title }}</h4>
+            <p class="card-text"><strong>📍 Location:</strong> {{ job.location }}</p>
+            <p class="card-text"><strong>💰 Salary:</strong> ${{ job.salary }}</p>
+            <p class="card-text"><strong>🛠 Type:</strong> {{ job.jobType }}</p>
+            <button class="btn btn-outline-primary w-100" (click)="openApplyModal(job, applyModal)">
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap Modal for Job Application -->
+  <ng-template #applyModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title text-primary">Apply for {{ selectedJob?.title }}</h4>
+      <button type="button" class="close" (click)="modal.dismiss()">&times;</button>
+    </div>
+  
+    <div class="modal-body">
+      <form #jobForm="ngForm" (ngSubmit)="applyForJob(modal)">
+        <div class="form-group">
+          <label class="font-weight-bold">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="applicant.name" name="name" required #name="ngModel" />
+          <div *ngIf="name.invalid && name.touched" class="text-danger">Name is required.</div>
+        </div>
+  
+        <div class="form-group">
+          <label class="font-weight-bold">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="applicant.email" name="email" required #email="ngModel" />
+          <div *ngIf="email.invalid && email.touched" class="text-danger">Valid email is required.</div>
+        </div>
+  
+        <div *ngIf="message" class="alert mt-2" [ngClass]="{'alert-success': messageType === 'success', 'alert-danger': messageType === 'error'}">
+          {{ message }}
+        </div>
+  
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success w-100" [disabled]="jobForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  

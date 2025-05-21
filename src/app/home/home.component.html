@@ -1,0 +1,54 @@
+<div class="container mt-4">
+
+    <!-- Filters Section at the Top -->
+    <div class="filter-container p-3 mb-4 bg-light rounded">
+        <div class="row">
+            <div class="col-md-3">
+                <select class="form-control" [(ngModel)]="selectedType" (change)="filterProducts()">
+                    <option value="">All Types</option>
+                    <option *ngFor="let type of uniqueTypes" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="Min Price" [(ngModel)]="minPrice" (input)="filterProducts()">
+            </div>
+
+            <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="Max Price" [(ngModel)]="maxPrice" (input)="filterProducts()">
+            </div>
+
+            <div class="col-md-3 d-flex align-items-center">
+                <input type="checkbox" id="favorites" [(ngModel)]="showFavorites" (change)="filterProducts()" class="mr-2">
+                <label for="favorites" class="mb-0">Show Only Favorites</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="row">
+        <div *ngFor="let product of filteredProducts" class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card product-card">
+                <div class="product-image">
+                    <img *ngIf="product.image" [src]="product.image" alt="{{ product.name }}">
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <p class="details"><strong>Type:</strong> {{ product.type }}</p>
+                    <p class="details"><strong>Color:</strong> {{ product.color }}</p>
+                    <p class="price">SAR {{ product.price }}</p>
+
+                    <div class="product-buttons d-flex justify-content-between mt-3">
+                        <button class="btn btn-primary" (click)="viewDetails(product)">Details</button>
+                        <button 
+                          class="btn btn-light favorite-btn"
+                          (click)="toggleFavorite(product)"
+                          [ngClass]="isFavorite(product) ? 'favorite' : 'not-favorite'">
+                          {{ isFavorite(product) ? '💖' : '🤍' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

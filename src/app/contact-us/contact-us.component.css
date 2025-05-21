@@ -1,0 +1,122 @@
+/* Background */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1522069213443-953a01714150?auto=format&fit=crop&w=1400&q=80') no-repeat center;
+    background-size: cover;
+  }
+  
+  /* Contact Box */
+  .contact-box {
+    width: 420px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Title */
+  .contact-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d63384;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-title i {
+    margin-right: 8px;
+  }
+  
+  /* Subtitle */
+  .contact-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Fields */
+  .input-field {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-field input,
+  .input-field textarea {
+    width: 100%;
+    padding: 12px 40px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .input-field input:focus,
+  .input-field textarea:focus {
+    border-color: #d63384;
+  }
+  
+  .input-field label {
+    position: absolute;
+    top: 14px;
+    left: 40px;
+    font-size: 0.9rem;
+    color: #aaa;
+    transition: 0.3s;
+  }
+  
+  .input-field input:focus + label,
+  .input-field input:not(:placeholder-shown) + label,
+  .input-field textarea:focus + label,
+  .input-field textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 35px;
+    font-size: 0.8rem;
+    color: #d63384;
+    background: white;
+    padding: 0 5px;
+  }
+  
+  /* Icon */
+  .input-field span {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d63384;
+    font-size: 1.2rem;
+  }
+  
+  /* Button */
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #d63384, #ff85a2);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .submit-button:hover {
+    background: linear-gradient(45deg, #ff85a2, #d63384);
+    transform: scale(1.05);
+  }
+  
+  /* Responsive */
+  @media (max-width: 450px) {
+    .contact-box {
+      width: 90%;
+    }
+  }

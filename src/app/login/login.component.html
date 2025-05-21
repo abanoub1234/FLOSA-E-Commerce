@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="form-card p-4 shadow-lg">
+    <div class="text-center mb-3">
+      <img src="https://raw.githubusercontent.com/Madoona-eng/imgs/refs/heads/main/logo-removebg-preview.png" alt="FLOSA Logo" class="logo">
+      <h2 class="text-pink">Login</h2>
+    </div>
+
+    <form (submit)="login()">
+      <div class="mb-3">
+        <label for="email" class="form-label text-pink">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="credentials.email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-pink">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="credentials.password" placeholder="Enter your password" required>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger text-center">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="isLoading">
+        {{ isLoading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+
+    <div class="text-center mt-3">
+      Not registered yet?
+      <a routerLink="/register" class="text-decoration-none text-pink fw-bold">Register</a>
+    </div>
+  </div>
+
+  <!-- Custom Toast Alert -->
+<div *ngIf="errorMessage" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1050">
+  <div class="toast alert-danger">
+    <div class="toast-body">
+      {{ errorMessage }}
+      <button type="button" class="btn-close" (click)="closeAlert()"></button>
+    </div>
+  </div>
+</div>
+
+</div>

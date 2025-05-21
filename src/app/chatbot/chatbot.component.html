@@ -1,0 +1,43 @@
+<div class="chatbot-container">
+  <!-- Floating Chat Button -->
+  <button class="chat-btn btn btn-primary rounded-circle shadow-lg" (click)="toggleChat()" *ngIf="!isOpen">
+    <i class="bi bi-robot"></i>
+  </button>
+
+  <!-- Chat Window -->
+  <div class="chat-window shadow-lg" *ngIf="isOpen">
+    <div class="chat-header bg-primary text-white d-flex justify-content-between align-items-center p-2">
+      <span><i class="bi bi-chat-text me-2"></i> Chat</span>
+      <button class="btn btn-sm btn-light" (click)="toggleChat()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <!-- Chat Messages -->
+    <div class="chat-body">
+      <div *ngFor="let chat of chatHistory">
+        <!-- User Message (Left) -->
+        <div class="chat-message user-msg" *ngIf="chat.user">
+          <div class="message-box user-box">
+            <span>{{ chat.user }}</span>
+          </div>
+        </div>
+
+        <!-- Bot Message (Right) -->
+        <div class="chat-message bot-msg" *ngIf="chat.bot">
+          <div class="message-box bot-box">
+            <span>{{ chat.bot }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fixed Chat Input -->
+    <div class="chat-input">
+      <input [(ngModel)]="userMessage" class="form-control" placeholder="Type your message..." />
+      <button class="btn btn-primary ms-2" (click)="sendMessage()">
+        <i class="bi bi-send"></i>
+      </button>
+    </div>
+  </div>
+</div>

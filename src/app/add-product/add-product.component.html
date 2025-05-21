@@ -1,0 +1,113 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="form-container">
+        <h4 class="text-center mb-3 text-success">🌸 Add Flower Product 🌸</h4>
+        
+        <!-- Form -->
+        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+            <div class="row">
+                
+                <!-- Flower Name -->
+                <div class="col-md-6 mb-2">
+                    <label for="name" class="form-label">Flower Name</label>
+                    <input type="text" class="form-control" id="name" 
+                        [(ngModel)]="product.name" name="name" 
+                        #name="ngModel" required>
+                    <div class="text-danger" *ngIf="name.invalid && name.touched">Name is required</div>
+                </div>
+
+                <!-- Type -->
+                <div class="col-md-6 mb-2">
+                    <label for="type" class="form-label">Type</label>
+                    <select class="form-select" id="type" [(ngModel)]="product.type" name="type">
+                        <option value="local">Local</option>
+                        <option value="imported">Imported</option>
+                    </select>
+                </div>
+
+                <!-- Color -->
+                <div class="col-md-6 mb-2">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" class="form-control" id="color" 
+                        [(ngModel)]="product.color" name="color" 
+                        #color="ngModel" required>
+                    <div class="text-danger" *ngIf="color.invalid && color.touched">Color is required</div>
+                </div>
+
+                <!-- Price -->
+                <div class="col-md-6 mb-2">
+                    <label for="price" class="form-label">Price ($)</label>
+                    <input type="number" class="form-control" id="price" 
+                        [(ngModel)]="product.price" name="price" 
+                        #price="ngModel" required min="1">
+                    <div class="text-danger" *ngIf="price.invalid && price.touched">
+                        Price is required and must be greater than 0
+                    </div>
+                </div>
+
+                <!-- Image URL -->
+                <div class="col-md-6 mb-2">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="text" class="form-control" id="image" 
+                        [(ngModel)]="product.image" name="image" 
+                        #image="ngModel" required pattern="https?://.+">
+                    <div class="text-danger" *ngIf="image.invalid && image.touched">
+                        Enter a valid URL starting with http:// or https://
+                    </div>
+                </div>
+
+                <!-- Store Selection -->
+                <div class="col-md-6 mb-2">
+                    <label for="store" class="form-label">Select Store</label>
+                    <select class="form-select" id="store" [(ngModel)]="product.store" 
+                        name="store" #store="ngModel" required>
+                        <option *ngFor="let store of stores" [value]="store._id">{{ store.name }}</option>
+                    </select>
+                    <div class="text-danger" *ngIf="store.invalid && store.touched">Store selection is required</div>
+                </div>
+
+                <!-- Description -->
+                <div class="col-12 mb-2">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" rows="2" 
+                        [(ngModel)]="product.description" name="description" 
+                        #description="ngModel" required></textarea>
+                    <div class="text-danger" *ngIf="description.invalid && description.touched">
+                        Description is required
+                    </div>
+                </div>
+
+                <!-- Care Instructions -->
+                <div class="col-12 mb-2">
+                    <label for="careInstructions" class="form-label">Care Instructions</label>
+                    <textarea class="form-control" id="careInstructions" rows="2" 
+                        [(ngModel)]="product.careInstructions" name="careInstructions"
+                        #careInstructions="ngModel" required></textarea>
+                    <div class="text-danger" *ngIf="careInstructions.invalid && careInstructions.touched">
+                        Care Instructions are required
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-success w-100 mt-2" 
+                [disabled]="productForm.invalid">🌿 Add Product</button>
+        </form>
+
+        <!-- Error Modal -->
+        <div class="modal fade" id="errorModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

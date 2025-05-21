@@ -1,0 +1,146 @@
+/* Modern Card */
+.job-card {
+    border-radius: 15px;
+    transition: 0.3s;
+  }
+  
+  .job-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Apply Button */
+  .btn-apply {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .btn-apply:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+  }
+  
+  /* Modal Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Modal Box */
+  .modal-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: popIn 0.3s ease-in-out;
+  }
+  
+  /* Modal Header */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6a11cb;
+  }
+  
+  .close-btn {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .close-btn:hover {
+    color: red;
+  }
+  
+  /* Input Group */
+  .input-group {
+    display: flex;
+    align-items: center;
+    background: #f3f3f3;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .input-group i {
+    color: #6a11cb;
+    font-size: 1.3rem;
+    margin-right: 10px;
+  }
+  
+  .input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  /* Error Message */
+  .error-msg {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Submit Button */
+  .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .btn-submit:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes popIn {
+    from {
+      transform: scale(0.9);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .modal-box {
+      width: 90%;
+    }
+  }

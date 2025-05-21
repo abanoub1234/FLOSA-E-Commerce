@@ -1,0 +1,90 @@
+body {
+    background-color: #FFF8F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    margin: 0;
+  }
+
+  .container {
+    min-height: 100vh; /* Ensures full height responsiveness */
+  }
+  
+  .form-card {
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  /* Center logo */
+
+  .card {
+    max-width: 500px; /* Responsive card width */
+    width: 100%;
+  }
+  
+  .text-pink {
+    color: #DF97A9; /* Match the logo color */
+    font-weight: bold;
+    text-decoration: none; /* Ensures no underline */
+  }
+  
+  .text-center a {
+    display: inline; /* Ensures "Login" stays inline */
+  }
+  
+  
+
+  
+  .logo {
+    max-width: 200px; /* Ensures the logo scales correctly */
+    height: auto;
+  }
+
+h2 {
+    margin-top: 0px; /* Reduce space above "Register" */
+    margin-bottom: 0px; /* Keep it balanced */
+    font-size: 24px;
+    color: #333;
+}
+  
+  .form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #DF97A9;
+    transition: 0.3s;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #CC9999;
+    box-shadow: 0 0 5px rgba(223, 151, 169, 0.5);
+  }
+  
+  .btn-primary {
+    background-color: #DF97A9;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #CC9999;
+  }
+  
+
+  
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 150px; /* Smaller size on smaller screens */
+  }
+}

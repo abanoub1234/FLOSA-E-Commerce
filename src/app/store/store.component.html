@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-5 text-uppercase fw-bold text-gradient">📍 Store Locations</h2>
+
+    <!-- Modern Search Bar -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-6 position-relative">
+            <input type="text" 
+                   class="form-control search-input" 
+                   placeholder="Search by location..." 
+                   [(ngModel)]="searchQuery" 
+                   (input)="filterStores()" />
+            <i class="bi bi-search search-icon"></i>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div *ngFor="let store of filteredStores" class="col-lg-4 col-md-6 col-sm-12 mb-4 d-flex">
+            <div class="card store-card shadow-lg border-0 w-100">
+                <img [src]="store.image" class="card-img-top store-img" alt="Store Image">
+                <div class="card-body text-center d-flex flex-column">
+                    <h4 class="card-title fw-bold text-dark">{{ store.name }}</h4>
+                    <p class="card-text location-text">
+                        <i class="bi bi-geo-alt-fill text-danger"></i>
+                        <strong>{{ store.locationName }}</strong>
+                    </p>
+                    <button class="btn btn-custom px-4 py-2 mt-auto" (click)="openMap(store.location)">
+                        <i class="bi bi-map"></i> View on Map
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

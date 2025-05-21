@@ -1,0 +1,257 @@
+/* Main Color */
+:root {
+    --primary-color: #DF97A9;
+  }
+  
+  /* Slider Section */
+  .slider-container {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .slider-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .slider-content p {
+    font-size: 1.2em;
+  }
+  
+  /* About Section */
+  .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .about-image {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .about-text {
+    max-width: 500px;
+  }
+  
+  .about-text h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .about-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  /* Footer Section */
+  .footer {
+    background-color: #f7f7f7;
+    padding: 30px 20px;
+    margin-top: 40px;
+    border-top: 2px solid var(--primary-color);
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .footer-icons i {
+    font-size: 24px;
+    margin: 0 10px;
+    color: var(--primary-color);
+    transition: transform 0.3s;
+  }
+  
+  .footer-icons i:hover {
+    transform: scale(1.2);
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  :root {
+  --primary-color: #DF97A9;
+}
+
+.image-slider {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: slide 12s infinite;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  33%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+/* Text over the slider */
+.slider-content {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.slider-content h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.slider-content p {
+  font-size: 1.2em;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.about-image {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-text {
+  max-width: 500px;
+}
+
+.about-text h2 {
+  color: var(--primary-color);
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #f7f7f7;
+  padding: 30px 20px;
+  margin-top: 40px;
+  border-top: 2px solid var(--primary-color);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-icons i {
+  font-size: 24px;
+  margin: 0 10px;
+  color: var(--primary-color);
+  transition: transform 0.3s;
+}
+
+.footer-icons i:hover {
+  transform: scale(1.2);
+}
+
+.footer-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Full screen height */
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full cover */
+    opacity: 0;
+    animation: fade 12s infinite;
+    z-index: 1;
+  }
+  
+  .fade1 {
+    animation-delay: 0s;
+  }
+  .fade2 {
+    animation-delay: 4s;
+  }
+  .fade3 {
+    animation-delay: 8s;
+  }
+  
+  @keyframes fade {
+    0% { opacity: 0; }
+    8% { opacity: 1; }
+    30% { opacity: 1; }
+    38% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  
+  .slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+  }
+  
+  .slider-text h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .slider-text p {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  

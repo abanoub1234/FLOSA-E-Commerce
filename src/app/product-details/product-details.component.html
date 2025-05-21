@@ -1,0 +1,72 @@
+<div class="container mt-5">
+<!-- Success Message -->
+<div *ngIf="showMessage" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    ✅ <strong>{{ product.name }}</strong> has been added to your cart successfully!
+    <button type="button" class="btn-close" aria-label="Close" (click)="showMessage = false"></button>
+  </div>
+  
+  
+    <div *ngIf="product" class="card product-card shadow-lg p-4">
+        <div class="row">
+            
+            <!-- Product Image Section -->
+            <div class="col-lg-5 col-md-6 text-center">
+                <div class="image-container">
+                    <img [src]="product.image" class="img-fluid product-image" alt="Product Image">
+                </div>
+            </div>
+
+            <!-- Product Details Section -->
+            <div class="col-lg-7 col-md-6">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold text-primary">{{ product.name }}</h2>
+                    <span class="badge bg-dark text-white product-type">{{ product.type | uppercase }}</span>
+
+                    <hr class="my-3">
+                    
+                    <p><strong class="text-secondary">🖌 Color:</strong> <span class="text-info">{{ product.color }}</span></p>
+                    <p><strong class="text-secondary">💰 Price:</strong> <span class="text-success fw-bold fs-3">SAR {{ product.price }}</span></p>
+                    <p class="text-muted">{{ product.description }}</p>
+                    <p><strong class="text-warning">📌 Care Instructions:</strong> {{ product.careInstructions }}</p>
+
+                    <!-- Seller & Store Info -->
+                    <div class="info-section">
+                        <div class="seller-info mb-3">
+                            <h5 class="text-dark">🛍️ Seller</h5>
+                            <p><strong class="text-secondary">Name:</strong> <span class="text-primary">{{ product.seller?.name }}</span></p>
+                        </div>
+                        <div class="store-info">
+                            <h5 class="text-dark">🏪 Store</h5>
+                            <p><strong class="text-secondary">Name:</strong> <span class="text-danger">{{ product.store?.name }}</span></p>
+                            <p><strong class="text-secondary">📍 Location:</strong> <span class="text-info">{{ product.store?.locationName }}</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Section -->
+                    <h5 class="mt-4 text-dark">⭐ Customer Reviews</h5>
+                    <div class="reviews-container">
+                        <ul *ngIf="product.reviews?.length > 0; else noReviews" class="list-group">
+                            <li *ngFor="let review of product.reviews" class="list-group-item review-item d-flex justify-content-between align-items-center">
+                                <span><strong class="text-primary">{{ review.user }}</strong>: {{ review.comment }}</span>
+                                <span class="badge bg-warning text-dark">⭐ {{ review.rating }}</span>
+                            </li>
+                        </ul>
+                        <ng-template #noReviews>
+                            <p class="text-muted">No reviews available.</p>
+                        </ng-template>
+                    </div>
+
+                    <!-- Back Button -->
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-dark btn-lg home-btn" (click)="goHome()" style="margin-right: 10px;">🏠 Back to Home</button>
+                        <button class="btn btn-success btn-lg" (click)="addToCart(product)">🛒 Buy</button>
+                        <button class="btn btn-dark btn-lg home-btn" style="margin-left: 10px;">⭐ Add review</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
